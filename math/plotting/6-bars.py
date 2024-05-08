@@ -8,7 +8,7 @@ fruit = np.random.randint(0, 20, (4, 3))  # Transpose the fruit array
 
 labels = ['Farrah', 'Fred', 'Felicia']
 fruits = ['Apples', 'Bananas', 'Oranges', 'Peaches']
-colors = ['red', 'yellow', 'orange', 'peachpuff']
+colors = ['red', 'yellow', 'orange', '#ffe5b4']
 
 fig, ax = plt.subplots()
 width = 0.5
