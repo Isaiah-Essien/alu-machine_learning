@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-'''This code prints slices the 3rd and fourth column of the larger matrixs into a 2D matrices'''
+
 matrix = [[1, 3, 9, 4, 5, 8], [2, 4, 7, 3, 4, 0], [0, 3, 4, 6, 1, 5]]
 the_middle=[]
 the_middle.append([row[2:4]for row in matrix])
