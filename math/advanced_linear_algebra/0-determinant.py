@@ -21,11 +21,9 @@ def determinant(matrix):
 
     # Check if matrix is square
     if len(matrix) != len(matrix[0]):
+        if len(matrix) == 0:  # Handle the case of a 0x0 matrix
+            return 1
         raise ValueError("matrix must be a square matrix")
-
-    # Base case for 0x0 matrix
-    if len(matrix) == 0:
-        return 1
 
     # Base case for 1x1 matrix
     if len(matrix) == 1:
@@ -53,3 +51,8 @@ def minor(matrix, i, j):
 
     """
     return [row[:j] + row[j+1:] for row in (matrix[:i] + matrix[i+1:])]
+
+# Example usage
+mat = [[]]
+print(determinant(mat))
+
