@@ -1,58 +1,43 @@
 #!/usr/bin/env python3
+"""
+    A function def determinant(matrix):
+    that calculates the determinant of a matrix:
+"""
+
 
 def determinant(matrix):
     """
-    Calculate the determinant of a square matrix.
+    Calculates the determinant of a matrix
 
     Args:
-        matrix (list of lists): The matrix whose determinant should be calculated.
+        - matrix: list of lists whose determinant
 
     Returns:
-        float: The determinant of the matrix.
-
-    Raises:
-        TypeError: If matrix is not a list of lists.
-        ValueError: If matrix is not square.
+        - the determinant of matrix
 
     """
-    # Check if matrix is a list of lists
-    if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix):
+    # Check if the input is a list of lists
+    if not all(isinstance(row, list) for row in matrix):
+        raise TypeError("matrix must be a list of lists")
+    if not isinstance(matrix, list):
         raise TypeError("matrix must be a list of lists")
 
-    # Check if matrix is square
-    if len(matrix) != len(matrix[0]):
-        if len(matrix) == 0:  # Handle the case of a 0x0 matrix
-            return 1
+    # Check if the matrix is square
+    num_rows = len(matrix)
+    if num_rows != len(matrix[0]):
         raise ValueError("matrix must be a square matrix")
 
-    # Base case for 1x1 matrix
-    if len(matrix) == 1:
+    # Base case: 0x0 matrix has determinant 1
+    if num_rows == 0:
+        return 1
+
+    # Base case: 1x1 matrix has determinant equal to its element
+    if num_rows == 1:
         return matrix[0][0]
 
     det = 0
-    for i in range(len(matrix)):
-        # Calculate the cofactor
-        cofactor = (-1) ** i * matrix[0][i] * determinant(minor(matrix, 0, i))
-        det += cofactor
+    for col in range(num_rows):
+        minor = [row[:col] + row[col + 1:] for row in matrix[1:]]
+        det += (-1) ** col * matrix[0][col] * determinant(minor)
 
     return det
-
-def minor(matrix, i, j):
-    """
-    Calculate the minor of a matrix by removing row i and column j.
-
-    Args:
-        matrix (list of lists): The matrix from which the minor should be calculated.
-        i (int): The row index to remove.
-        j (int): The column index to remove.
-
-    Returns:
-        list of lists: The minor of the matrix.
-
-    """
-    return [row[:j] + row[j+1:] for row in (matrix[:i] + matrix[i+1:])]
-
-# Example usage
-mat = [[]]
-print(determinant(mat))
-
