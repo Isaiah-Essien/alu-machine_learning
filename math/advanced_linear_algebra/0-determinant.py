@@ -21,18 +21,18 @@ def determinant(matrix):
     matrix_size = len(matrix)
     if matrix_size == 0:
         raise TypeError("matrix must be a list of lists")
-    
+
     # Check if the matrix is square
     for row in matrix:
         if type(row) is not list:
             raise TypeError("matrix must be a list of lists")
         if len(row) != matrix_size:
             raise ValueError("matrix must be a square matrix")
-    
+
     # Base case for 1x1 matrix
     if matrix_size == 1:
         return matrix[0][0]
-    
+
     # Base case for 2x2 matrix
     if matrix_size == 2:
         a = matrix[0][0]
@@ -40,7 +40,7 @@ def determinant(matrix):
         c = matrix[1][0]
         d = matrix[1][1]
         return (a * d) - (b * c)
-    
+
     # Calculate determinant for larger matrices
     multiplier = 1
     det = 0
