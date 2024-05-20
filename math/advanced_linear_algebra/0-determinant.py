@@ -28,7 +28,7 @@ def determinant(matrix):
     for row in matrix:
         if type(row) is not list:
             raise TypeError("matrix must be a list of lists")
-        if matrix==[[]]:
+        if matrix == [[]]:
             return 1
         if len(row) != matrix_size:
             raise ValueError("matrix must be a square matrix")
