@@ -2,6 +2,8 @@
 """
     A function determinant(matrix) that calculates the determinant of a matrix
 """
+
+
 def determinant(matrix):
     """
     Calculates the determinant of a matrix
@@ -16,7 +18,7 @@ def determinant(matrix):
     # Check if the input is a list of lists
     if type(matrix) is not list:
         raise TypeError("matrix must be a list of lists")
-    
+
     # Check if the matrix is empty
     matrix_size = len(matrix)
     if matrix_size == 0:
