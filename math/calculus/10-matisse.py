@@ -9,6 +9,23 @@ def poly_derivative(poly):
     '''
         calculates the derivative of a polynomial
     '''
-    if not isinstance(poly, list) or len(poly) <= 1:
+    if not isinstance(poly, list) or not poly:
+        return None
+    for coefficient in poly:
+        if not isinstance(coefficient, (int, float)):
+            return None
+
+    # Calculate derivative
+    if len(poly) == 1:
         return [0]
-    return [poly[i] * i for i in range(1, len(poly))]
+    derivative = [
+        coefficient * power
+        for power, coefficient in enumerate(poly)
+    ][1:]
+    return derivative
+
+
+# Example usage:
+if __name__ == "__main__":
+    poly = [5, 3, 0, 1]  # Represents the polynomial 5 + 3x + x^3
+    print(poly_derivative(poly))
