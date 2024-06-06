@@ -41,3 +41,23 @@ class Exponential:
                 raise ValueError("data must contain multiple values")
             # Calculate lambtha from data
             self.lambtha = float(1 / (sum(data) / len(data)))
+
+    def cdf(self, x):
+        '''
+        Calculates the value of the CDF for a given time period.
+
+        Args:
+            x (float): The time period.
+
+        Returns:
+            float: The CDF value for x.
+        '''
+        if x < 0:
+            return 0
+        # Calculate e^(-λx) using a series expansion
+        e_neg_lambda_x = 1
+        term = 1
+        for n in range(1, 100):  # Sum up to 100 terms for good precision
+            term *= -self.lambtha * x / n
+            e_neg_lambda_x += term
+        return 1 - e_neg_lambda_x
