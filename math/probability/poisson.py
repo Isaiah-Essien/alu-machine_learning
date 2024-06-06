@@ -12,9 +12,10 @@ class Poisson:
 
     Attributes:
         lambtha (float): The rate (λ) of the distribution, representing
-        the expected number of occurrences in a given
-        time frame
+                         the expected number of occurrences in a given
+                         time frame.
     '''
+
     def __init__(self, data=None, lambtha=1.):
         '''
         Initializes the Poisson distribution with data or a given λ.
@@ -42,3 +43,52 @@ class Poisson:
                 raise ValueError("data must contain multiple values")
             # Calculate lambtha from data
             self.lambtha = float(sum(data) / len(data))
+
+    def pmf(self, k):
+        '''
+        Calculates the value of the PMF for a given number of “successes”.
+
+        Args:
+            k (int): The number of “successes”.
+
+        Returns:
+            float: The PMF value for k.
+        '''
+        # Convert k to an integer if it is not
+        k = int(k)
+        if k < 0:
+            return 0
+
+        # Calculate factorial manually
+        def factorial(n):
+            if n == 0 or n == 1:
+                return 1
+            result = 1
+            for i in range(2, n + 1):
+                result *= i
+            return result
+
+        # Calculate the PMF using the formula
+        lambda_k = self.lambtha ** k
+        e_neg_lambda = self._exp(-self.lambtha)
+        k_factorial = factorial(k)
+
+        pmf_value = (lambda_k * e_neg_lambda) / k_factorial
+        return pmf_value
+
+    def _exp(self, x):
+        '''
+        Calculate e^x using a series expansion.
+
+        Args:
+            x (float): The exponent.
+
+        Returns:
+            float: The value of e^x.
+        '''
+        result = 1
+        term = 1
+        for n in range(1, 100):  # Sum up to 100 terms for good precision
+            term *= x / n
+            result += term
+        return result
