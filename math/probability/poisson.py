@@ -12,8 +12,8 @@ class Poisson:
 
     Attributes:
         lambtha (float): The rate (λ) of the distribution, representing
-                         the expected number of occurrences in a given
-                         time frame.
+        the expected number of occurrences in a given
+        time frame.
     '''
 
     def __init__(self, data=None, lambtha=1.):
