@@ -88,3 +88,29 @@ class Poisson:
         '''
         e = 2.7182818285
         return e**x
+
+    def cdf(self, k):
+        '''
+        Calculates the value of the CDF for a given number of "successes".
+
+        Args:
+            k (int): The number of "successes".
+
+        Returns:
+            float: The CDF value for k.
+        '''
+        # Convert k to an integer if it is not
+        k = int(k)
+        if k < 0:
+            return 0
+
+        # Calculate the CDF using the formula
+        cdf_value = 0
+        for i in range(k + 1):
+            lambda_k = self.lambtha ** i
+            e_neg_lambda = self._exp(-self.lambtha)
+            k_factorial = self.factorial(i)
+            cdf_value += (lambda_k * e_neg_lambda) / k_factorial
+
+        return cdf_value
+
