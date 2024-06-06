@@ -75,20 +75,3 @@ class Poisson:
 
         pmf_value = (lambda_k * e_neg_lambda) / k_factorial
         return pmf_value
-
-    def _exp(self, x):
-        '''
-        Calculate e^x using a series expansion.
-
-        Args:
-            x (float): The exponent.
-
-        Returns:
-            float: The value of e^x.
-        '''
-        result = 1
-        term = 1
-        for n in range(1, 100):  # Sum up to 100 terms for good precision
-            term *= x / n
-            result += term
-        return result
