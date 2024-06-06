@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+
 """
 This module defines a Poisson class for representing and
 manipulating Poisson distributions.
@@ -17,8 +19,8 @@ class Poisson:
         Initializes the Poisson distribution with data or a given λ.
 
         Args:
-            data (list, optional): List of the data to be used to estimate the distribution.
-            lambtha (float, optional): The expected number of occurrences in a given time frame.
+            data: List of the data to be used to estimate the distribution.
+            lambtha: The expected number of occurrences in a given time frame.
 
         Raises:
             ValueError: If lambtha is not a positive value.
