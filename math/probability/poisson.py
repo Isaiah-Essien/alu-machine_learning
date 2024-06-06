@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 class Poisson:
     '''
-    This class calculates the function of a lambtha checking if the data is greater than 2,
+    This class calculates the function of a lambtha,
+    checking if the data is greater than 2,
     and if lambtha is greater than 0
     '''
     def __init__(self, data=None, lambtha=1.):
         # Validate lambtha
         if lambtha <= 0:
             raise ValueError("lambtha must be a positive value")
-        
         # Handle case when data is None (not provided)
         if data is None:
             self.lambtha = float(lambtha)
