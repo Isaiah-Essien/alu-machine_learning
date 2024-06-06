@@ -6,6 +6,8 @@ This module defines a Poisson class for representing and
 manipulating Poisson distributions.
 """
 class Poisson:
+
+
     '''
     Represents a Poisson distribution.
 
