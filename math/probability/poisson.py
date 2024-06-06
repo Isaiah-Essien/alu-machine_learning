@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-
 """
 This module defines a Poisson class for representing and
 manipulating Poisson distributions.
 """
+
 
 class Poisson:
     '''
