@@ -88,7 +88,7 @@ class Poisson:
         '''
         result = 1
         term = 1
-        for n in range(1, 100):  # Sum up to 100 terms for good precision
+        for n in range(1,200):  # Sum up to 100 terms for good precision
             term *= x / n
             result += term
         return result
