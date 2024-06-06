@@ -6,6 +6,7 @@ class Poisson:
     and if lambtha is greater than 0
     '''
     def __init__(self, data=None, lambtha=1.):
+        '''This function initializes lambtha'''
         # Validate lambtha
         if lambtha <= 0:
             raise ValueError("lambtha must be a positive value")
