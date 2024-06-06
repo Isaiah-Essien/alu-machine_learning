@@ -86,10 +86,5 @@ class Poisson:
         Returns:
             float: The value of e^x.
         '''
-        result = 1
-        term = 1
         e = 2.7182818285
-        for n in range(1, 100):  # Sum up to 100 terms for good precision
-            term *= x / n
-            result += term
-        return result*e
+        return e**x
