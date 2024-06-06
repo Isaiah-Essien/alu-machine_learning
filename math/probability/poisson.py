@@ -7,8 +7,6 @@ manipulating Poisson distributions.
 """
 
 class Poisson:
-
-
     '''
     Represents a Poisson distribution.
 
