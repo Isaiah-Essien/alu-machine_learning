@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 '''Module for calculating normal distribution'''
+π = 3.1415926536
+e = 2.7182818285
 
 
 class Normal:
@@ -63,3 +65,7 @@ class Normal:
             float: The x-value of z.
         """
         return self.mean + z * self.stddev
+
+    def pdf(self,x):
+        '''This calculates the pdf'''
+        return (1.0 / (self.stddev * (2 * π) ** 0.5)) * e ** (-0.5 * ((x - self.mean) / self.stddev) ** 2)
