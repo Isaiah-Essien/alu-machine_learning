@@ -59,7 +59,9 @@ class Binomial:
         Returns:
             float: The PMF value for k.
         """
-        return (self.factorial(self.n) / (self.factorial(k) * self.factorial(self.n - k))) * (self.p ** k) * ((1 - self.p) ** (self.n - k))
+        return ((self.factorial(self.n) /
+                 (self.factorial(k) * self.factorial(self.n - k))) *
+                (self.p ** k) * ((1 - self.p) ** (self.n - k)))
 
     def cdf(self, k):
         """
