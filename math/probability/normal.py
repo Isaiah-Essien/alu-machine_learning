@@ -67,12 +67,28 @@ class Normal:
         return self.mean + z * self.stddev
 
     def pdf(self, x):
-        '''This calculates the pdf'''
+        """
+        Calculates the value of the PDF for a given x-value.
+
+        Args:
+            x: The x-value.
+
+        Returns:
+            float: The PDF value for x.
+        """
         return (1.0 / (self.stddev * (2 * π) ** 0.5)) * e ** (
             -0.5 * ((x - self.mean) / self.stddev) ** 2)
 
     def cdf(self, x):
-        '''Calculate te cdf'''
+        """
+        Calculates the value of the CDF for a given x-value.
+
+        Args:
+            x: The x-value.
+
+        Returns:
+            float: The CDF value for x.
+        """
         z = (x - self.mean) / self.stddev
         erf_value = (2 / (π ** 0.5)) * (
             z - (z ** 3) / 3 + (z ** 5) / 10 - (z ** 7) / 42 + (z ** 9) / 216)
