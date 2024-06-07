@@ -89,12 +89,7 @@ class Normal:
         Returns:
             float: The CDF value for x.
         """
-        z = (x - self.mean) / self.stddev
-        t = 1 / (1 + 0.2316419 * abs(z))
-        erf_approx = 1 - (1 / (2 * π) ** 0.5) * e ** (-z ** 2 / 2) * (
-            0.319381530 * t + -0.356563782 * t ** 2 + 1.781477937 * t ** 3 +
-            -1.821255978 * t ** 4 + 1.330274429 * t ** 5)
-        if z >= 0:
-            return erf_approx
-        else:
-            return 1 - erf_approx
+        z = (x - self.mean) / (self.stddev * (2 ** 0.5))
+        t = z - (z ** 3) / 3 + (z ** 5) / 10 - (z ** 7) / 42 + (z ** 9) / 216
+        cdf = 0.5 * (1 + (2 / (π ** 0.5)) * t)
+        return cdf
