@@ -66,6 +66,7 @@ class Normal:
         """
         return self.mean + z * self.stddev
 
-    def pdf(self,x):
+    def pdf(self, x):
         '''This calculates the pdf'''
-        return (1.0 / (self.stddev * (2 * π) ** 0.5)) * e ** (-0.5 * ((x - self.mean) / self.stddev) ** 2)
+        return (1.0 / (self.stddev * (2 * π) ** 0.5)) * e ** (
+            -0.5 * ((x - self.mean) / self.stddev) ** 2)
