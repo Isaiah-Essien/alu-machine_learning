@@ -20,11 +20,6 @@ class Binomial:
             data: List of the data to be used to estimate the distribution.
             n: The number of Bernoulli trials.
             p: The probability of a "success".
-
-        Raises:
-            ValueError: If n is not a positive value or p is not a valid probability.
-            TypeError: If data is not a list.
-            ValueError: If data does not contain multiple values.
         """
         if n < 1:
             raise ValueError("n must be a positive value")
