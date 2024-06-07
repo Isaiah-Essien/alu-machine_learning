@@ -90,21 +90,28 @@ class Binomial:
             result *= i
         return result
 
-def pmf(self, k):
-    """
-    Calculates the value of the PMF for a given number of "successes".
+    def pmf(self, k):
+        """
+        Calculates the value of the PMF for a given number of successes.
 
-    Args:
-        k: The number of "successes".
+        Args:
+            k: The number of successes.
 
-    Returns:
-        float: The PMF value for k.
-    """
-    k = int(k)
-    if k < 0 or k > self.n:
-        return 0
-    return (
-        (self.factorial(self.n) / (self.factorial(k) * self.factorial(self.n - k))) *
-        (self.p ** k) *
-        ((1 - self.p) ** (self.n - k))
-    )
+        Returns:
+            float: The PMF value for k.
+        """
+        k = int(k)
+        if k < 0 or k > self.n:
+            return 0
+        n_factorial = 1
+        for i in range(1, self.n + 1):
+            n_factorial *= i
+        k_factorial = 1
+        for i in range(1, k + 1):
+            k_factorial *= i
+        nk_factorial = 1
+        for i in range(1, self.n - k + 1):
+            nk_factorial *= i
+        binomial_co = n_factorial // (k_factorial * nk_factorial)
+        pmf = binomial_co * (self.p ** k) * ((1 - self.p) ** (self.n - k))
+        return pmf
