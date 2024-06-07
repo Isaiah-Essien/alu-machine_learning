@@ -89,3 +89,22 @@ class Binomial:
         for i in range(2, n + 1):
             result *= i
         return result
+
+def pmf(self, k):
+    """
+    Calculates the value of the PMF for a given number of "successes".
+
+    Args:
+        k: The number of "successes".
+
+    Returns:
+        float: The PMF value for k.
+    """
+    k = int(k)
+    if k < 0 or k > self.n:
+        return 0
+    return (
+        (self.factorial(self.n) / (self.factorial(k) * self.factorial(self.n - k))) *
+        (self.p ** k) *
+        ((1 - self.p) ** (self.n - k))
+    )
