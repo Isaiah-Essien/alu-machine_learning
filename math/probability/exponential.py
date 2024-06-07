@@ -54,10 +54,6 @@ class Exponential:
         '''
         if x < 0:
             return 0
-        # Calculate e^(-λx) using a series expansion
-        e_neg_lambda_x = 1
-        term = 1
-        for n in range(1, 100):  # Sum up to 100 terms for good precision
-            term *= -self.lambtha * x / n
-            e_neg_lambda_x += term
-        return 1 - e_neg_lambda_x
+        # Calculate e^(-λx) using the provided value of e
+        e= 2.7182818285 ** (-self.lambtha * x)
+        return 1 - e
