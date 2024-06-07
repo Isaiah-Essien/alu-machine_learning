@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-'''Binomial here and there '''
+'''Binomial distribution'''
 
 
 class Binomial:
@@ -41,7 +41,9 @@ class Binomial:
                 raise ValueError("data must contain multiple values")
 
             p = sum(data) / len(data)
-            n = int(round(sum(data) / p))
+            q = 1 - p
+            variance = sum((x - p) ** 2 for x in data) / len(data)
+            n = int(round(p * q / variance))
             p = sum(data) / n
             self.n = n
             self.p = p
