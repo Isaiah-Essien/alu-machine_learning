@@ -55,5 +55,5 @@ class Exponential:
         if x < 0:
             return 0
         # Calculate e^(-λx) using the provided value of e
-        e= 2.7182818285 ** (-self.lambtha * x)
+        e = 2.7182818285 ** (-self.lambtha * x)
         return 1 - e
