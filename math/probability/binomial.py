@@ -26,25 +26,26 @@ class Binomial:
             TypeError: If data is not a list.
             ValueError: If data does not contain multiple values.
         """
-        if n <= 0:
+        if n < 1:
             raise ValueError("n must be a positive value")
         if p <= 0 or p >= 1:
             raise ValueError("p must be greater than 0 and less than 1")
 
         if data is None:
-            self.n = int(n)
-            self.p = float(p)
+            self.n = n
+            self.p = p
         else:
             if not isinstance(data, list):
-                raise TypeError("data must be a list")
+                raise TypeError('data must be a list')
             if len(data) < 2:
-                raise ValueError("data must contain multiple values")
+                raise ValueError('data must contain multiple values')
 
-            p = sum(data) / len(data)
-            q = 1 - p
-            variance = sum((x - p) ** 2 for x in data) / len(data)
-            n = int(round(p * q / variance))
-            p = sum(data) / n
+            mean = sum(data) / len(data)
+            variance = sum((x - mean) ** 2 for x in data) / len(data)
+            q = variance / mean
+            p = 1 - q
+            n = round(mean / p)
+            p = mean / n
             self.n = n
             self.p = p
 
