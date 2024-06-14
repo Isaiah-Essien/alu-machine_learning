@@ -16,8 +16,8 @@ def mean_cov(X):
         d (int): The number of dimensions in each data point
 
     Returns:
-    mean (numpy.ndarray): A 1D array of shape (1, d) containing the mean of the data set
-    cov (numpy.ndarray): A 2D array of shape (d, d) containing the covariance matrix of the data set
+    mean (numpy.ndarray): A 1D array of shape (1, d)
+    cov (numpy.ndarray): A 2D array of shape (d, d)
 
     Raises:
     TypeError: If X is not a 2D numpy.ndarray
