@@ -1,21 +1,24 @@
 #!/usr/bin/env python3
 
+'''This script finads the mean of a covariance '''
+
+
 import numpy as np
 
 
 def mean_cov(X):
     """
     Calculates the mean and covariance of a data set.
-    
+
     Parameters:
     X (numpy.ndarray): A 2D array of shape (n, d) containing the data set
         n (int): The number of data points
         d (int): The number of dimensions in each data point
-    
+
     Returns:
     mean (numpy.ndarray): A 1D array of shape (1, d) containing the mean of the data set
     cov (numpy.ndarray): A 2D array of shape (d, d) containing the covariance matrix of the data set
-    
+
     Raises:
     TypeError: If X is not a 2D numpy.ndarray
     ValueError: If n is less than 2
