@@ -9,14 +9,14 @@ import numpy as np
 def correlation(C):
     """
     Calculates the correlation matrix from a covariance matrix.
-    
+
     Parameters:
-    C (numpy.ndarray): A 2D array of shape (d, d) containing the covariance matrix
+    C (numpy.ndarray): A 2D array of shape (d, d)
         d (int): The number of dimensions
-    
+
     Returns:
     numpy.ndarray: A 2D array of shape (d, d) containing the correlation matrix
-    
+
     Raises:
     TypeError: If C is not a numpy.ndarray
     ValueError: If C does not have shape (d, d)
