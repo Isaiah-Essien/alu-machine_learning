@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-'''This scripts computes a Multiverse distribution'''
+'''Calculates the Multivers dist an d PDF'''
 
 
 import numpy as np
@@ -41,21 +41,20 @@ class MultiNormal:
         # Calculate the covariance matrix
         self.cov = np.dot(data_centered, data_centered.T) / (n - 1)
 
-
     def pdf(self, x):
         """
-            Calculates the PDF at a data point.
-
-            Parameters:
-            x (numpy.ndarray): A 2D array of shape (d, 1)
-
-            Returns:
-            float: The value of the PDF
-
-            Raises:
-            TypeError: If x is not a numpy.ndarray
-            ValueError: If x is not of shape (d, 1)
-            """
+        Calculates the PDF at a data point.
+        
+        Parameters:
+        x (numpy.ndarray): A 2D array of shape (d, 1)
+        
+        Returns:
+        float: The value of the PDF
+        
+        Raises:
+        TypeError: If x is not a numpy.ndarray
+        ValueError: If x is not of shape (d, 1)
+        """
         if not isinstance(x, np.ndarray):
             raise TypeError("x must be a numpy.ndarray")
 
