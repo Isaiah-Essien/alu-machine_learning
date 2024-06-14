@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-'''Calculates the Multivers dist an d PDF'''
+'''This script calculates the Multivers dist and PDF'''
 
 
 import numpy as np
@@ -44,13 +44,12 @@ class MultiNormal:
     def pdf(self, x):
         """
         Calculates the PDF at a data point.
-        
+
         Parameters:
         x (numpy.ndarray): A 2D array of shape (d, 1)
-        
         Returns:
         float: The value of the PDF
-        
+
         Raises:
         TypeError: If x is not a numpy.ndarray
         ValueError: If x is not of shape (d, 1)
@@ -61,7 +60,7 @@ class MultiNormal:
         d = self.mean.shape[0]
 
         if x.shape != (d, 1):
-            raise ValueError(f"x must have the shape ({d}, 1)")
+            raise ValueError("x must have the shape ({}, 1)".format(d))
 
         # Calculate the PDF
         det_cov = np.linalg.det(self.cov)
