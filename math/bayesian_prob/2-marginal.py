@@ -137,7 +137,8 @@ def marginal(x, n, P, Pr):
         n (int): The total number of patients observed.
         P (numpy.ndarray): A 1D numpy.ndarray containing the various
         hypothetical probabilities of developing severe side effects.
-        Pr (numpy.ndarray): A 1D numpy.ndarray containing the prior beliefs of P.
+        Pr (numpy.ndarray): A 1D
+        numpy.ndarray containing the prior beliefs of P.
 
     Returns:
         float: The marginal probability of obtaining x and n.
