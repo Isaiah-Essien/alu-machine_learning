@@ -21,13 +21,13 @@ def likelihood(x, n, P):
         hypothetical probabilities of developing severe side effects.
 
     Returns:
-        numpy.ndarray: A 1D numpy.ndarray containing the likelihood of obtaining the data,
-        x and n, for each probability in P, respectively.
+        numpy.ndarray: A 1D numpy.ndarray containing the likelihood
+        of obtaining the data,x and n, for each probability in P, respectively.
 
     Raises:
         ValueError: If n is not a positive integer,
-        if x is not an integer that is greater than or equal to 0, if x is greater than n,
-        or if any value in P is not in the range [0, 1].
+        if x is not an integer that is greater than or equal to 0, 
+        if x is greater than n,or if any value in P is not in the range [0, 1].
         TypeError: If P is not a 1D numpy.ndarray.
     """
     # Check if n is a positive integer
