@@ -26,7 +26,7 @@ def likelihood(x, n, P):
 
     Raises:
         ValueError: If n is not a positive integer,
-        if x is not an integer that is greater than or equal to 0, 
+        if x is not an integer that is greater than or equal to 0,
         if x is greater than n,or if any value in P is not in the range [0, 1].
         TypeError: If P is not a 1D numpy.ndarray.
     """
