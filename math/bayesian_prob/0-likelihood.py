@@ -64,11 +64,3 @@ def likelihood(x, n, P):
     likelihoods = coeff * (P ** x) * ((1 - P) ** (n - x))
 
     return likelihoods
-
-
-if __name__ == '__main__':
-    import numpy as np
-    likelihood = __import__('0-likelihood').likelihood
-
-    P = np.linspace(0, 1, 21)  # [0.0, 0.05, 0.1, ..., 1.0]
-    print(likelihood(55, 100, P).round(12))
