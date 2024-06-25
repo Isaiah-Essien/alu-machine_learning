@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
-'''This script performs a convolution on grayscale images with custom padding'''
+'''
+    This script performs a convolution on grayscale images
+    with custom padding
+'''
 
 import numpy as np
 
