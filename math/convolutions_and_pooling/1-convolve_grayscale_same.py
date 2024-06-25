@@ -13,8 +13,10 @@ def convolve_grayscale_same(images, kernel):
     Performs a same convolution on grayscale images.
 
     Args:
-        images (numpy.ndarray): Shape (m, h, w), containing multiple grayscale images.
-        kernel (numpy.ndarray): Shape (kh, kw), containing the kernel for the convolution.
+        images (numpy.ndarray): Shape (m, h, w),
+        containing multiple grayscale images.
+        kernel (numpy.ndarray): Shape (kh, kw),
+        containing the kernel for the convolution.
 
     Returns:
         numpy.ndarray: The convolved images.
