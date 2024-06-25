@@ -6,6 +6,8 @@ import numpy as np
 
 
 '''This function calculates the valid convolution of grayscale images'''
+
+
 def convolve_grayscale_valid(images, kernel):
     '''args:
         m is the number of images
@@ -14,8 +16,8 @@ def convolve_grayscale_valid(images, kernel):
         kh is the height of the kernel
         kw is the width of the kernel
     '''
-    m, h, w=images.shape
-    kw,kh=kernel.shape
+    m, h, w = images.shape
+    kw , kh = kernel.shape
     new_h = h - kh + 1
     new_w = w - kw + 1
     convolved_images = np.zeros((m, new_h, new_w))
