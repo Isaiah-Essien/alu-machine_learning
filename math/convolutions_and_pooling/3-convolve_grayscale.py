@@ -12,7 +12,7 @@ import numpy as np
 def convolve_grayscale(images, kernel, padding="same", stride=(1, 1)):
     """
     A function def convolve_grayscale(images, kernel,
-        padding='same', stride=(1, 1)):
+        padding='same', stride is (1, 1)):
     that performs a convolution on grayscale images:
 
     Args:
