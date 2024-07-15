@@ -20,7 +20,7 @@ This project demonstrates how to build a linear regression model to predict TV s
 
 This project uses a linear regression model to predict TV sales based on marketing expenses and additional features. The model is trained using a dataset of TV sales and marketing expenses, saved as a pickle file, and then used in a FastAPI application to make predictions via an API endpoint.
 
-## Prerequisites
+## Prerequisites:
 
 Before you begin, ensure you have the following installed:
 
