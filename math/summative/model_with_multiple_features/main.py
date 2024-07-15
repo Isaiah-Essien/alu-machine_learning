@@ -4,6 +4,7 @@ import numpy as np
 from pydantic import BaseModel
 import uvicorn
 
+
 # Load the model
 model = joblib.load('ad_budgets_sales_model.joblib')
 
@@ -16,9 +17,9 @@ class AdBudget(BaseModel):
     Newspaper_ad_budget: float
 
 
-@app.get('/', status_code=status.HTTP_200_OK)
-async def home():
-    return{'Isaiah':'Greets you, Marvin 😎'}
+# @app.get('/', status_code=status.HTTP_200_OK)
+# async def home():
+#     return 'Isaiah Greets you, Marvin 😎'
 
 
 @app.post('/predict', status_code=status.HTTP_200_OK)
