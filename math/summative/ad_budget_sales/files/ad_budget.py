@@ -93,6 +93,6 @@ model_score=ad_budgets_sales_model.score(x_test,y_test)*100
 print(f'The Score of the model is: {model_score}')
 
 # Save the model to a file using joblib
-joblib.dump(ad_budgets_sales_model, 'ad_budgets_sales_model.joblib')
+# joblib.dump(ad_budgets_sales_model, 'ad_budgets_sales_model.joblib')
 
-print("Model saved as ad_budgets_sales_model.joblib")
+# print("Model saved as ad_budgets_sales_model.joblib")

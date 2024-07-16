@@ -28,13 +28,13 @@ This repository contains a machine learning model that predicts sales revenue ba
 
 The repository is structured as follows:
 
-- `ad_sales_model/`: Contains the files related to the machine learning model, including the file used for training the model and the requirements file for dependencies.
+- `ad_budget.py/`: Contains the files related to the machine learning model, including the file used for training the model and the requirements file for dependencies.
 - `sales_app/`: Contains the Flutter app files, including the main Dart code and other related resources.
 - `linear_regression_with_one _feature/`: Contains the Univariate file used for practicing and the colab notbook from the Canvas.
 
 ## Requirements
 
-To install the necessary dependencies for the machine learning model, navigate to the `ad_sales_model/files/` directory and use the following command:
+To install the necessary dependencies for the machine learning model, navigate to the `ad_budget.py/files/` directory and use the following command:
 
 - pip install -r requirements.txt
 
