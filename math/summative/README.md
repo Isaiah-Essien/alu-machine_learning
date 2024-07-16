@@ -4,8 +4,8 @@ Welcome to the Sales Prediction Model and App repository. This repository contai
 
 ## Screenshots
 
-![Home Screen](ad_sales_prediction/assets/lanscape.jpg)
-![Prediction Result](ad_sales_prediction/assets/portrait.jpg)
+![Home Screen](./sales_app/assets/lanscape.jpg)
+![Prediction Result](./sales_app/assets/portrait.jpg)
 
 ## Table of Contents
 
