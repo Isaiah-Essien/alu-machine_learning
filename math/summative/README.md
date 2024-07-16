@@ -57,7 +57,8 @@ The machine learning model predicts sales revenue based on the budgets allocated
 The Flutter app interacts with the deployed model through an HTTP POST request. Users input their ad budgets for TV, Radio, and Newspaper ads, and the app sends these inputs to the model's endpoint. The model then returns the predicted sales revenue, which is displayed in the app.
 
 Endpoint
-The API endpoint for the model is: `https://ad-sales-model.onrender.com/predict`
+- The  deployed on rendee API endpoint for the model is: `https://ad-sales-model.onrender.com/predict`
+-FastAPI swagger end point: `http://127.0.0.1:8000/docs#/default/predict_predict_post`
 
 ## Flutter App Overview
 The Flutter app provides a user-friendly interface for predicting sales revenue. Users can enter their advertising budgets, and with the click of a button, receive a sales prediction. The app also maintains a history of past predictions for reference.
