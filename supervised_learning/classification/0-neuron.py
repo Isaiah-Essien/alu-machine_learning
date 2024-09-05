@@ -17,6 +17,7 @@ class Neuron:
             ValueError: If nx is less than 1.
         """
     def __init__(self,nx):
+        nx>0
         if not isinstance(nx,int):
             raise TypeError('nx must be an integer')
         if nx<1:
