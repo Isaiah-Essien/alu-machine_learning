@@ -25,16 +25,16 @@ class Neuron:
         self.__A = 0
 
     @property
-    def Weight(self):
+    def W(self):
         '''Getter for Weights'''
         return self.__W
 
     @property
-    def Bias(self):
+    def b(self):
         '''Getter for Bias'''
         return self.__b
 
     @property
-    def Activation(self):
+    def A(self):
         '''Getter for Activation function'''
         return self.__A
