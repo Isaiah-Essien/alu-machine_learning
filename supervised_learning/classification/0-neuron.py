@@ -12,7 +12,6 @@ class Neuron:
 
         Args:
             nx (int): The number of input features to the neuron.
-        
         Raises:
             TypeError: If nx is not an integer.
             ValueError: If nx is less than 1.
