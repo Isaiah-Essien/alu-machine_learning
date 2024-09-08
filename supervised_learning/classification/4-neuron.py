@@ -71,6 +71,23 @@ class Neuron:
                 float: The cost (cross-entropy loss).
             """
         m = Y.shape[1]
-        cost = (-1 / m) * np.sum(Y * np.log(A) +
-                                 (1 - Y) * (np.log(1.0000001 - A)))
+        cost = - (1 / m) * np.sum(Y * np.log(A) +
+                                  (1 - Y) * np.log(1.0000001 - A))
         return cost
+
+    def evaluate(self, X, Y):
+        '''This evaluates the Neuron
+            Args:
+                X (numpy.ndarray): Input data of shape (nx, m), where
+            nx is the number of input features
+            and m is the number of examples
+                Y (numpy.ndarray): Correct labels (1, m) for the input data.
+
+            Returns:
+                Prdiction output of y converted to probabilties between 0 and 1
+                cost between the lables 
+        '''
+        A = self.forward_prop(X)
+        predictions = np.where(A >= 0.5, 1, 0)
+        cost = self.cost(Y,A)
+        return predictions, cost
