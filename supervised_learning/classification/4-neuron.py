@@ -85,9 +85,9 @@ class Neuron:
 
             Returns:
                 Prdiction output of y converted to probabilties between 0 and 1
-                cost between the lables 
+                cost between the lables
         '''
         A = self.forward_prop(X)
         predictions = np.where(A >= 0.5, 1, 0)
-        cost = self.cost(Y,A)
+        cost = self.cost(Y, A)
         return predictions, cost
