@@ -112,20 +112,22 @@ class Neuron:
     def train(self, X, Y, iterations=5000, alpha=0.05):
         '''This class trains the model
         Args:
-            X is a numpy.ndarray with shape (nx, m) that contains the input data
+            X is a numpy.ndarray with shape (nx, m)
+            that contains the input data
             nx is the number of input features to the neuron
             m is the number of examples
-            Y is a numpy.ndarray with shape (1, m) that contains the correct labels for the input data
+            Y is a numpy.ndarray with shape (1, m)
+            that contains the correct labels for the input data
             iterations is the number of iterations to train over
             alpha is the learning rate
         '''
         if not isinstance(iterations, int):
             raise TypeError('iterations must be an integer')
-        if iterations <=0:
+        if iterations <= 0:
             raise ValueError('iterations must be a positive integer')
         if not isinstance(alpha, float):
             raise TypeError('alpha must be a float')
-        if alpha <=0:
+        if alpha <= 0:
             raise ValueError('alpha must be positive')
         for _ in range(iterations):
             self.__A = self.forward_prop(X)
