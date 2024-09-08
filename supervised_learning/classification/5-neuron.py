@@ -104,7 +104,7 @@ class Neuron:
         '''
         m = Y.shape[1]
         error = A - Y
-        dW = (1 / m) * (np.dot(X, np.transpose(error)))
+        dW = (1 / m) * (np.dot(error, np.transpose(X)))
         db = (1 / m) * (np.sum(error))
         self.__W = self.__W - (alpha * dW)
         self.__b = self.__b - (alpha * db)
