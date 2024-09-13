@@ -87,8 +87,8 @@ class NeuralNetwork:
 
     def evaluate(self, X, Y):
         '''Evaluate the neuron's predictions'''
-        A = self.forward_prop(X)  # Get the activated output (predictions)
+        A1, A2 = self.forward_prop(X)  # Get the activated output (predictions)
         # Convert probabilities (A) to binary predictions (0 or 1)
-        predictions = np.where(A >= 0.5, 1, 0)
-        cost = self.cost(Y, A)  # Calculate the cost based on predictions
+        predictions = np.where(A2 >= 0.5, 1, 0)
+        cost = self.cost(Y, A2)  # Calculate the cost based on predictions
         return predictions, cost
