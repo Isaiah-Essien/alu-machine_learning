@@ -1,41 +1,34 @@
 #!/usr/bin/env python3
-'''Evaluate'''
+"""
+Defines a function that evaluates output of
+neural network classifier
+"""
+
 
 import tensorflow as tf
-import numpy as np
 
 
 def evaluate(X, Y, save_path):
     """
-    Evaluates the output of a neural network
-    Args:
-    X: numpy.ndarray - input data to evaluate
-    Y: numpy.ndarray - one-hot labels for X
-    save_path: str - location to load the model from
-    Returns:
-    tuple - network’s prediction, accuracy, and loss
-    """
-    # Create placeholders
-    nx = X.shape[1]
-    classes = Y.shape[1]
-    x = tf.placeholder(tf.float32, shape=(None, nx), name='x')
-    y = tf.placeholder(tf.float32, shape=(None, classes), name='y')
+    Evaluates output of neural network
 
-    # Restore the model
+    parameters:
+        X [numpy.ndarray]: contains the input data to evaluate
+        Y [numpy.ndarray]: contains the one-hot labels for X
+        save_path [string]: location to load the model from
+
+    returns:
+        the network's prediction, accuracy, and loss, respectively
+    """
     with tf.Session() as sess:
-        # Load the meta graph and restore the weights
         saver = tf.train.import_meta_graph(save_path + '.meta')
         saver.restore(sess, save_path)
-
-        # Get tensors from the graph's collection
-        graph = tf.get_default_graph()
-        y_pred = graph.get_tensor_by_name('y_pred:0')
-        loss = graph.get_tensor_by_name('loss:0')
-        accuracy = graph.get_tensor_by_name('accuracy:0')
-
-        # Evaluate the model
-        feed_dict = {x: X, y: Y}
-        pred, loss_val, accuracy_val = sess.run(
-            [y_pred, loss, accuracy], feed_dict=feed_dict)
-
-    return pred, accuracy_val, loss_val
+        x = tf.get_collection('x')[0]
+        y = tf.get_collection('y')[0]
+        y_pred = tf.get_collection('y_pred')[0]
+        accuracy = tf.get_collection('accuracy')[0]
+        loss = tf.get_collection('loss')[0]
+        prediction = sess.run(y_pred, feed_dict={x: X, y: Y})
+        accuracy = sess.run(accuracy, feed_dict={x: X, y: Y})
+        loss = sess.run(loss, feed_dict={x: X, y: Y})
+    return (prediction, accuracy, loss)
