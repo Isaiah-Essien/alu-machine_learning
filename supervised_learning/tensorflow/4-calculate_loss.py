@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-'''Loss'''
+'''calculate the Loss'''
+
 import tensorflow as tf
 
 
@@ -15,6 +16,6 @@ def calculate_loss(y, y_pred):
     tensor - loss of the predictions
     """
     # Compute the softmax cross-entropy loss
-    loss = tf.losses.softmax_cross_entropy(onehot_labels=y, logits=y_pred)
-
+    loss = tf.losses.softmax_cross_entropy(
+        onehot_labels=y, logits=y_pred)
     return loss
