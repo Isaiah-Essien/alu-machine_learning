@@ -11,7 +11,7 @@ def create_train_op(loss, alpha):
     loss: tensor - loss of the network’s prediction
     alpha: float - learning rate
     Returns:
-    train_op: operation - 
+    train_op: operation -
     operation that trains the network using gradient descent
     """
     # Create a GradientDescentOptimizer object
