@@ -9,12 +9,10 @@ import tensorflow as tf
 def create_layer(prev, n, activation):
     """
     Create a neural network layer
-    
     Args:
     prev: tensor - the output of the previous layer
     n: int - the number of nodes in the layer
     activation: function - activation function for the layer
-    
     Returns:
     tensor - the output of the layer.
     """
