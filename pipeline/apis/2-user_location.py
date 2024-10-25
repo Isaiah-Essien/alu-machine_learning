@@ -1,24 +1,5 @@
 #!/usr/bin/env python3
-"""
-This script uses the GitHub API to print the location of a specific user.
-
-Usage:
-    ./2-user_location.py <GitHub API URL>
-
-Arguments:
-    <GitHub API URL>: The full URL to the GitHub user's API endpoint. Example:
-                      https://api.github.com/users/holbertonschool
-
-Outputs:
-    - If the user exists and has a location set, the location is printed.
-    - If the user does not exist, "Not found" is printed.
-    - If the rate limit is exceeded (status code 403), the script prints
-      "Reset in X min", where X is the number of minutes until the rate limit resets.
-
-Notes:
-    - The script gracefully handles API errors.
-    - If the status code is 403, the "X-RateLimit-Reset" header is used to determine
-      when the rate limit will be reset.
+"""This script uses the GitHub API to print the location of a specific user
 """
 
 import sys
