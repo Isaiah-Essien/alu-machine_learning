@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-'''This script collects data from the swapiapi'''
-import requests
 
+import requests
+'''This script collects data from the swapiapi'''
 
 def availableShips(passengerCount):
     """
