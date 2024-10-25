@@ -1,28 +1,22 @@
 #!/usr/bin/env python3
-"""This script uses the GitHub API to print the location of a specific user
-"""
+'''
+Prints the location of a user
+'''
+
 
 import sys
 import requests
 import time
 
 
-def main():
+def get_user_location(api_url):
     """
-    Main function to fetch and display the GitHub user's location or handle errors.
+    Fetch and print the location of a GitHub user.
 
-    This function checks the status code of the API request and appropriately
-    handles cases like rate-limiting (status code 403), user not found (status code 404),
-    and general successful requests (status code 200).
+    :param api_url: The API URL for the user
     """
-    if len(sys.argv) != 2:
-        print("Usage: ./2-user_location.py <GitHub API URL>")
-        sys.exit(1)
-
-    url = sys.argv[1]
-
     try:
-        response = requests.get(url)
+        response = requests.get(api_url)
 
         if response.status_code == 200:
             user_data = response.json()
@@ -30,20 +24,25 @@ def main():
             if location:
                 print(location)
             else:
-                print("Location not available")
+                print('Location not available')
         elif response.status_code == 404:
-            print("Not found")
+            print('Not found')
         elif response.status_code == 403:
-            reset_time = int(response.headers.get('X-RateLimit-Reset'))
+            reset_time = int(
+                response.headers.get('X-RateLimit-Reset', time.time()))
             current_time = int(time.time())
-            minutes_left = (reset_time - current_time) // 60
-            print(f"Reset in {minutes_left} min")
+            wait_time = (reset_time - current_time) // 60
+            print('Reset in {} min'.format(wait_time))
         else:
-            print(f"Error: {response.status_code}")
-
+            print('Error: {}'.format(response.status_code))
     except requests.RequestException as e:
-        print(f"Error fetching data: {e}")
+        print('An error occurred: {}'.format(e))
 
 
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) != 2:
+        print('Usage: ./2-user_location.py <api_url>')
+        sys.exit(1)
+
+    api_url = sys.argv[1]
+    get_user_location(api_url)
