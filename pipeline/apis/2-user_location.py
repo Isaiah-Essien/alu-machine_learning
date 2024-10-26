@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 """Script that prints the location of a specific user"""
 
 import requests
