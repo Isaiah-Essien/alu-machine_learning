@@ -1,4 +1,5 @@
---Valid email
+-- Creates a trigger that decreases the quantity of an item after adding a new order
+-- quantity in the table `items` can be negative
 DROP TRIGGER IF EXISTS reset_validation;
 
 DELIMITER $$
