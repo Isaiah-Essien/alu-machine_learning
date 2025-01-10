@@ -129,8 +129,8 @@ class NST:
             w_new = 512
             h_new = int(h * (512 / w))
 
-        resized = tf.image.resize(np.expand_dims(image, axis=0),
-                                  size=(h_new, w_new), method='bicubic')
+        resized = tf.image.resize_bicubic(np.expand_dims(image, axis=0),
+                                          size=(h_new, w_new))
         rescaled = resized / 255
         rescaled = tf.clip_by_value(rescaled, 0, 1)
         return (rescaled)
@@ -184,7 +184,7 @@ class NST:
         """
         if not isinstance(input_layer, (tf.Tensor, tf.Variable)):
             raise TypeError("input_layer must be a tensor of rank 4")
-        if len(input_layer.shape) != 4:
+        if len(input_layer.shape) is not 4:
             raise TypeError("input_layer must be a tensor of rank 4")
         _, h, w, c = input_layer.shape
         product = int(h * w)
@@ -231,11 +231,11 @@ class NST:
             the layer's style cost
         """
         if not isinstance(style_output, (tf.Tensor, tf.Variable)) or \
-           len(style_output.shape) != 4:
+           len(style_output.shape) is not 4:
             raise TypeError("style_output must be a tensor of rank 4")
         one, h, w, c = style_output.shape
         if not isinstance(gram_target, (tf.Tensor, tf.Variable)) or \
-           len(gram_target.shape) != 3 or gram_target.shape[1:] != (c, c):
+           len(gram_target.shape) is not 3 or gram_target.shape != (1, c, c):
             raise TypeError(
                 "gram_target must be a tensor of shape [1, {}, {}]".format(
                     c, c))
